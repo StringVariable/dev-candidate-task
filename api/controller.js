@@ -7,9 +7,10 @@ const { ObjectId } = mongodb;
 
 // Retrieve and return all users from the database.
 exports.findAll = (req, res) => {
+    const query = req.query || {};
     User.find({})
-      .skip(parseFloat(req.offset || 0, 10))
-      .limit(parseFloat(req.limit || 25, 10))
+      .skip(parseFloat(query.offset || 0, 10))
+      .limit(parseFloat(query.limit || 25, 10))
       .then(users => {
           res.send(users);
       }).catch(err => {
