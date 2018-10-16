@@ -4,9 +4,13 @@
 - The average Askable incentive is $75 for 1 hour and $50 for 30 mins
 - This is real participant data. Do not upload it or expose it publicly
 - We want you to come up with a creative solution that uses real data sources, don't just rely solely on arbitrary formulas you made up
-- e.g. Think about geography, how could you vary the incentive based on the what you know about the average income of people who live in a certain area?
-- Think about code legibility - we can't access your app if your functions don't make sense
-- Write a project journal that describes your thinking process as you go
+  - Your incentive formula should take into account a combination of participant data, and data from external sources
+  - e.g. Think about geography, how could you vary the incentive based on the what you know about the average income of people who live in a certain area? Think about the information you have about each user, and how that might affect how they value their time, how likely they would be to attend user testing sessions, or how valuable they would be to a researcher.
+  - The examples above are provided to start igniting some ideas - not to limit your thinking. _Please use as examples only_
+  - For this task use at least **2 external data sources / APIs** (there is no upper limit though, use as many as you like)
+- Think about code legibility - we can't assess your work if we can't understand it
+- Make regular commits with helpful messages.
+- Write a bit of a summary to describe the logic behind your calculation of the incentive value. Remember this is mostly about coming up with a logical and creative solution to an open-ended solution, and writing good code, not necessarily the incentive result itself.
 
 Bonus points:
 - Include some tests for your app
