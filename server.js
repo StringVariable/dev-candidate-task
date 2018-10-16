@@ -28,10 +28,7 @@ mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${
     process.exit();
 });
 
-// define a simple route
-app.get('/', (req, res) => {
-    res.send("THIS IS WHERE THE TEMPLATE GOES...");
-});
+app.use(express.static('app'));
 
 require('./api/routes.js')(app);
 
