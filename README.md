@@ -19,6 +19,16 @@ Bonus points:
 
 - You can either use React as a Framework or go vanilla. We don't encourage other frameworks as we don't currently use something else internally.
 
+## GETTING STARTED
+
+- You should be working in a fork owned by your own Github account (not directly in the original repo)
+- Make sure you have a `.env` in the project root
+- In terminal navigate to the project root and run `yarn start`
+- Visit `http://localhost:3999` in your browser (or a different port if you changed that in `.env`) - this will serve the contents of `/app`
+- There is a basic REST API available for participant data at `http://localhost:3999/api` - the controllers, models & routes for this are in `/api`. Feel free to change the default methods or add new ones
+- When you're done, push your changes to Github, and send us the link of the repo
+
+
 ## DESIGNS
 
 - https://www.figma.com/file/dBTCABEvWwaScd9nFSaoBB15/Participant-Incentive-Finder?node-id=1%3A2
