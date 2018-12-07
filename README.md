@@ -17,14 +17,14 @@ Bonus points:
 
 ### Important
 
-This task is mainly about how you approach a difficult problem. It's intentionally not possible to deliver a perfect solution within the timeframe, so a big part of it is prioritisation, and setting the right scope for yourself. The worst thing you can do is bite off more than you can chew, and then have nothing to deliver at the end.
+This task is mainly about how you approach a difficult problem. It won't be possible to deliver a perfect solution within the timeframe, so a big part of the challenge is prioritisation and setting the right scope for yourself. The worst thing you can do is bite off more than you can chew, and then have nothing to deliver at the end.
 
 #### Tips for success:
 
 - Have a working app with _some version_ of an implementation, utilising _some degree_ of incentive logic - even a very basic implementation that works is better than no implementation. But obviously the more sophisticated it is, the better
 - Come up with a clever solution for calculating the incentive. Even if you don't fully implement it, describe how you plan to solve the problem (what data sources, the logic you'll use, etc.)
-- Time is limited - avoid timesinks. If you're stuck on something (particularly things involving a 3rd party integration / data source), move on to something else / try a different approach.
-- Don't some time, but not a lot of time on making it look nice. Keep in mind it's one of the least important aspects of this task.
+- Time is limited - beware of timesinks. If you're stuck on something (particularly things involving a 3rd party integration / data source), move on to something else / try a different approach.
+- Spend some time, but not a lot of time on making it look nice. Keep in mind it's one of the least important aspects of this task.
 - It's ok to ask questions. We'll answer most questions related to the Askable data model and the logistics of the task, but we probably won't help with technical questions.
 
 
