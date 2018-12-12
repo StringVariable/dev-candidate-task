@@ -32,7 +32,8 @@ This task is mainly about how you approach a difficult problem. It won't be poss
 
 - You should be working in a fork owned by your own Github account (*not directly in the original repo*)
 - Make sure you have a `.env` in the project root (we'll provide this)
-- In terminal navigate to the project root and run `yarn start`
+- In terminal navigate to the project root and run `yarn` or `npm install` to install dependencies
+- In terminal, run `yarn start` or `npm run start` to start the server
 - Visit `http://localhost:3999` in your browser (or a different port if you changed that in `.env`) - this will serve the contents of `/app` - put your frontend files in here
 - There is a basic REST API available for participant data at `http://localhost:3999/api` - the controllers, models & routes for this are in `/api`. Feel free to change the default methods or add new ones. Your frontend app should connect to this app.
 - When you're done, push your changes to Github, and send us the link of the repo
