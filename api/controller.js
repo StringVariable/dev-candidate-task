@@ -18,7 +18,7 @@ exports.findAll = (req, res) => {
         }]
     })
       .skip(parseFloat(query.offset || 0, 10))
-      .limit(parseFloat(query.limit || 200, 10))
+      .limit(parseFloat(query.limit || 1000, 10))
       .then(users => {
           res.send(users);
       }).catch(err => {

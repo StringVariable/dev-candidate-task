@@ -17,7 +17,8 @@ class LocationSearchInput extends React.Component {
   };
 
   handleSelect = address => {
-    const { locationReceived } = this.props;
+    const { locationReceived, toggleLoading } = this.props;
+    toggleLoading();
     geocodeByAddress(address)
     .then(results => getLatLng(results[0]))
     .then(latLng => locationReceived(latLng))
@@ -29,10 +30,11 @@ class LocationSearchInput extends React.Component {
   };
 
   fetchParticipants() {
-    const { participantsReceived } = this.props;
+    const { participantsReceived, toggleLoading } = this.props;
     axios.get(`${process.env.REACT_APP_API_URL}/api/user`)
     .then(results => {
       participantsReceived(results.data);
+      toggleLoading();
     })
   }
 
@@ -51,7 +53,7 @@ class LocationSearchInput extends React.Component {
                   className: 'location-search-input',
                 })}
               />
-              <div className="autocomplete-dropdown-container">
+              <div className={suggestions.length ? "autocomplete-dropdown-container" : "hidden"}>
                 {suggestions.map(suggestion => {
                   const className = suggestion.active
                     ? 'suggestion-item--active'

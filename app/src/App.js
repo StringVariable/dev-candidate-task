@@ -14,16 +14,13 @@ class App extends Component {
       location: {
         lat: null,
         lng: null
-      }
+      },
+      tableLoading: false
     }
   }
 
   filterParticipantsByLocation() {
-    console.log(this.state);
     const { participants, location } = this.state;
-    console.log(participants);
-    console.log(location);
-    
     const searchLocation = new window.google.maps.LatLng(location.lat, location.lng);
     const filteredParticipants = participants.filter(participant => {
       const { latitude, longitude } = participant.location;
@@ -55,8 +52,15 @@ class App extends Component {
     }));
   }
 
+  toggleLoading() {
+    this.setState(prevState => ({
+      ...prevState,
+      tableLoading: !prevState.tableLoading
+    }));
+  }
+
   render() {
-    const { participants, location } = this.state;
+    const { participants, location, tableLoading } = this.state;
     return (
       <div className="App">
         <Header />
@@ -65,14 +69,16 @@ class App extends Component {
             <LocationSearch 
               className="locationSearch" 
               participantsReceived={this.participantsReceived.bind(this)}
-              locationReceived={this.locationReceived.bind(this)}  
+              locationReceived={this.locationReceived.bind(this)} 
+              toggleLoading={this.toggleLoading.bind(this)} 
             />
             <Duration />
           </div>
           <div className="tableContainer">
             <Table 
               participants={participants} 
-              location={location} 
+              location={location}
+              loading={tableLoading} 
             />
           </div>
         </div>

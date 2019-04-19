@@ -12,13 +12,17 @@ class LocationSearch extends Component {
   }
 
   render() {
-    const { participantsReceived, locationReceived } = this.props;
+    const { participantsReceived, locationReceived, toggleLoading } = this.props;
     return (
       <div className="locationSearch">
         <div className="inputGroup">
           <label>Session Location:</label>
           <br />
-          <LocationSearchInput participantsReceived={participantsReceived} locationReceived={locationReceived}/>
+          <LocationSearchInput 
+            participantsReceived={participantsReceived} 
+            locationReceived={locationReceived}
+            toggleLoading={toggleLoading}
+          />
         </div>
       </div>
     )

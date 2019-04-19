@@ -24,7 +24,7 @@ class Table extends Component {
   // }
 
   render() {
-    let { participants } = this.props;
+    let { participants, loading } = this.props;
 
     const columns = [{
       Header: 'Email',
@@ -39,7 +39,7 @@ class Table extends Component {
       <div className="inputGroup fullWidthTable">
         <label>Participants</label>
         <br />
-        <ReactTable data={participants} columns={columns}/>
+        <ReactTable data={participants} columns={columns} loading={loading}/>
       </div>
     )
   }
