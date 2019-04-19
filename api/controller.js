@@ -8,9 +8,15 @@ const { ObjectId } = mongodb;
 // Retrieve and return all users from the database.
 exports.findAll = (req, res) => {
     const query = req.query || {};
-    User.find({})
+    User.find({
+        $and: [{
+            location: { $exists: true } 
+        }, {
+            "location.city": { $exists: true }
+        }]
+    })
       .skip(parseFloat(query.offset || 0, 10))
-      .limit(parseFloat(query.limit || 50, 10))
+      .limit(parseFloat(query.limit || 20, 10))
       .then(users => {
           res.send(users);
       }).catch(err => {
