@@ -1,6 +1,7 @@
 .pageContainer {
   margin-top: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .inputGroup {
@@ -18,5 +19,6 @@
     font-size: 15px;
     outline: none;
     width: 100%;
+    border: 1px solid #E9E9E9;
   }
 }

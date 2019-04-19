@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Components/Header/Header';
 import LocationSearch from './Components/LocationSearch/LocationSearch';
+import Duration from './Components/Duration/Duration';
 import './App.scss';
 
 class App extends Component {
@@ -12,6 +13,7 @@ class App extends Component {
         <Header />
         <div className="pageContainer">
           <LocationSearch className="locationSearch" />
+          <Duration />
         </div>
       </div>
     );
