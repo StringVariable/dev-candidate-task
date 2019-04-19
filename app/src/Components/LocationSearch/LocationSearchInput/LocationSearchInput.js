@@ -17,9 +17,10 @@ class LocationSearchInput extends React.Component {
   };
 
   handleSelect = address => {
+    const { locationReceived } = this.props;
     geocodeByAddress(address)
     .then(results => getLatLng(results[0]))
-    .then(latLng => console.log('Success', latLng))
+    .then(latLng => locationReceived(latLng))
     .catch(error => console.error('Error', error));
     this.setState({
       address
@@ -31,7 +32,6 @@ class LocationSearchInput extends React.Component {
     const { participantsReceived } = this.props;
     axios.get(`${process.env.REACT_APP_API_URL}/api/user`)
     .then(results => {
-      // console.log(results.data);
       participantsReceived(results.data);
     })
   }

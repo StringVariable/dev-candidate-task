@@ -12,16 +12,26 @@ class Table extends Component {
     };
   }
 
+  // filterParticipantsByLocation(participants, location) {
+  //   const searchLocation = new window.google.maps.LatLng(location.lat, location.lng);
+  //   const filteredParticipants = participants.filter(participant => {
+  //     const { latitude, longitude } = participant.location;
+  //     const participantLocation = new window.google.maps.LatLng(latitude, longitude);
+  //     const distance = window.google.maps.geometry.spherical.computeDistanceBetween(searchLocation, participantLocation);
+  //     return distance / 1000 < 10;
+  //   });
+  //   return filteredParticipants;
+  // }
+
   render() {
-    const { participants } = this.props;
-    console.log(participants);
+    let { participants } = this.props;
+
     const columns = [{
       Header: 'Email',
-      accessor: participant => participant.email, // String-based value accessors!
-      id: participant => participant.email
+      accessor: 'email',
     }, {
       Header: 'Location',
-      accessor: participant => participant.location ? `${participant.location.postcode}` : 'null',
+      accessor: participant => `${participant.location.city}, ${participant.location.state}`,
       id: participant => participant.id
     }]
    

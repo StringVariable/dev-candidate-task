@@ -10,13 +10,15 @@ exports.findAll = (req, res) => {
     const query = req.query || {};
     User.find({
         $and: [{
+            "meta.identity.gender": { $exists: true }
+        }, {
             location: { $exists: true } 
         }, {
             "location.city": { $exists: true }
         }]
     })
       .skip(parseFloat(query.offset || 0, 10))
-      .limit(parseFloat(query.limit || 20, 10))
+      .limit(parseFloat(query.limit || 200, 10))
       .then(users => {
           res.send(users);
       }).catch(err => {
