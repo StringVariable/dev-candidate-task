@@ -28,9 +28,11 @@ class LocationSearchInput extends React.Component {
   };
 
   fetchParticipants() {
+    const { participantsReceived } = this.props;
     axios.get(`${process.env.REACT_APP_API_URL}/api/user`)
     .then(results => {
-      console.log(results.data);
+      // console.log(results.data);
+      participantsReceived(results.data);
     })
   }
 

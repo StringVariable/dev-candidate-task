@@ -13,35 +13,23 @@ class Table extends Component {
   }
 
   render() {
-    const data = [{
-      name: 'Tanner Linsley',
-      age: 26,
-      friend: {
-        name: 'Jason Maurer',
-        age: 23,
-      }
-    }];
-   
+    const { participants } = this.props;
+    console.log(participants);
     const columns = [{
-      Header: 'Name',
-      accessor: 'name' // String-based value accessors!
+      Header: 'Email',
+      accessor: participant => participant.email, // String-based value accessors!
+      id: participant => participant.email
     }, {
-      Header: 'Age',
-      accessor: 'age',
-    }, {
-      id: 'friendName', // Required because our accessor is not a string
-      Header: 'Friend Name',
-      accessor: d => d.friend.name // Custom value accessors!
-    }, {
-      Header: props => <span>Friend Age</span>, // Custom header components!
-      accessor: 'friend.age'
+      Header: 'Location',
+      accessor: participant => participant.location ? `${participant.location.postcode}` : 'null',
+      id: participant => participant.id
     }]
    
     return (
       <div className="inputGroup fullWidthTable">
         <label>Participants</label>
         <br />
-        <ReactTable data={data} columns={columns}/>
+        <ReactTable data={participants} columns={columns}/>
       </div>
     )
   }

@@ -16,12 +16,13 @@ class LocationSearch extends Component {
   }
 
   render() {
+    const { participantsReceived } = this.props;
     return (
       <div className="locationSearch">
         <div className="inputGroup">
           <label>Session Location:</label>
           <br />
-          <LocationSearchInput />
+          <LocationSearchInput participantsReceived={participantsReceived}/>
         </div>
       </div>
     )
