@@ -3,6 +3,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import axios from 'axios';
 import './locationSearchInput.scss';
 
 class LocationSearchInput extends React.Component {
@@ -23,7 +24,15 @@ class LocationSearchInput extends React.Component {
     this.setState({
       address
     })
+    this.fetchParticipants();
   };
+
+  fetchParticipants() {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/user`)
+    .then(results => {
+      console.log(results.data);
+    })
+  }
 
   render() {
     return ( 

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 if (process.env.NODE_ENV !== 'prod') {
   require('dotenv').load();
@@ -13,6 +14,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+// enable cors
+app.use(cors());
 
 // Configuring the database
 const mongoose = require('mongoose');
