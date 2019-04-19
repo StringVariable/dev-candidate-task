@@ -1,0 +1,13 @@
+.autocomplete-dropdown-container {
+
+  .suggestion-item {
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+  }
+  
+  .suggestion-item--active {
+    cursor: pointer;
+    margin-top: 15px;
+  }
+}
