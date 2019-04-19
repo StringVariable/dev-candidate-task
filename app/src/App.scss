@@ -1,7 +1,16 @@
 .pageContainer {
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-evenly;
+  margin: 50px 400px;
+
+  .fieldContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tableContainer {
+    display: flex;
+    width: 100%;
+  }
+
 }
 
 .inputGroup {
