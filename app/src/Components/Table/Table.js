@@ -13,10 +13,14 @@ class Table extends Component {
     };
   }
 
+/**
+ * Calculates incentive price based on if they are a student/working part time
+ */
   calculateIncentive(participant) {
     const incentiveModifier = 0.3;
     let { baseIncentive } = this.props;
     const { work } = participant.meta;
+
     if ((work) && (work.status.fulltime_student || work.status.parttime)) {
       const incentive = baseIncentive + (baseIncentive * incentiveModifier);
       return numeral(incentive).format('$0.00');
