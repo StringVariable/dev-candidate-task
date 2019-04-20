@@ -5,7 +5,7 @@
   "author": "callicoder",
   "original": "https://github.com/callicoder/node-easy-notes-app.git",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "concurrently \"nodemon server.js\" \"cd app/ && npm start\""
   },
   "keywords": [
     "Express",
