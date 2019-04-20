@@ -15,7 +15,8 @@ class App extends Component {
         lat: null,
         lng: null
       },
-      tableLoading: false
+      baseIncentive: 75,
+      tableLoading: false,
     }
   }
 
@@ -52,6 +53,37 @@ class App extends Component {
     }));
   }
 
+  handleDurationChange(duration) {
+    switch(duration){
+      case '1 hour':
+      this.setState(prevState => ({
+        ...prevState,
+        baseIncentive: 75
+      }));
+      break;
+
+      case '45 mins':
+      this.setState(prevState => ({
+        ...prevState,
+        baseIncentive: 60
+      }));
+      break;
+
+      case '30 mins':
+      this.setState(prevState => ({
+        ...prevState,
+        baseIncentive: 50
+      }));
+      break;
+
+      default:
+      this.setState(prevState => ({
+        ...prevState,
+        baseIncentive: 75
+      }));
+    }
+  }
+
   toggleLoading() {
     this.setState(prevState => ({
       ...prevState,
@@ -60,7 +92,7 @@ class App extends Component {
   }
 
   render() {
-    const { participants, location, tableLoading } = this.state;
+    const { participants, location, tableLoading, baseIncentive } = this.state;
     return (
       <div className="App">
         <Header />
@@ -72,13 +104,13 @@ class App extends Component {
               locationReceived={this.locationReceived.bind(this)} 
               toggleLoading={this.toggleLoading.bind(this)} 
             />
-            <Duration />
+            <Duration durationChange={this.handleDurationChange.bind(this)} />
           </div>
           <div className="tableContainer">
             <Table 
               participants={participants} 
               location={location}
-              baseIncentive={75}
+              baseIncentive={baseIncentive}
               loading={tableLoading} 
             />
           </div>
