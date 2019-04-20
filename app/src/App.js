@@ -6,7 +6,6 @@ import Table from './Components/Table/Table';
 import './App.scss';
 
 class App extends Component {
-
   constructor() {
     super()
     this.state = {
@@ -20,21 +19,32 @@ class App extends Component {
     }
   }
 
+/**
+ * Filters out any participants outside of a 10km radius of the searched location.
+ */
   filterParticipantsByLocation() {
     const { participants, location } = this.state;
     const searchLocation = new window.google.maps.LatLng(location.lat, location.lng);
+
+    // Filter the participants
     const filteredParticipants = participants.filter(participant => {
       const { latitude, longitude } = participant.location;
       const participantLocation = new window.google.maps.LatLng(latitude, longitude);
       const distance = window.google.maps.geometry.spherical.computeDistanceBetween(searchLocation, participantLocation);
       return distance / 1000 < 10;
     });
+
+    // Update the state to reflect the filtered participants
     this.setState(prevState => ({
       ...prevState,
       participants: filteredParticipants
     }));
   }
 
+/**
+ * Hook invoked when participants are received from the API
+ * @param {array} participants - Array of participants
+ */
   participantsReceived(participants) {
     this.setState((prevState) => ({
       ...prevState,
@@ -43,6 +53,10 @@ class App extends Component {
     this.filterParticipantsByLocation();
   }
 
+/**
+ * Hook invoked when the location is changed
+ * @param {object} location - Location object containing lat,lng of searched location
+ */
   locationReceived(location) {
     this.setState(prevState => ({
       ...prevState,
@@ -53,6 +67,10 @@ class App extends Component {
     }));
   }
 
+  /**
+ * Hook invoked when the session duration is changed
+ * @param {string} duration - A string representing the session length
+ */
   handleDurationChange(duration) {
     switch(duration){
       case '1 hour':
@@ -84,6 +102,9 @@ class App extends Component {
     }
   }
 
+/**
+ * Function to invoke/remove loading on the table
+ */
   toggleLoading() {
     this.setState(prevState => ({
       ...prevState,
