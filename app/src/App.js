@@ -78,6 +78,7 @@ class App extends Component {
             <Table 
               participants={participants} 
               location={location}
+              baseIncentive={75}
               loading={tableLoading} 
             />
           </div>

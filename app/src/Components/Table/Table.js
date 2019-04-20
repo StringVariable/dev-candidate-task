@@ -12,19 +12,20 @@ class Table extends Component {
     };
   }
 
-  // filterParticipantsByLocation(participants, location) {
-  //   const searchLocation = new window.google.maps.LatLng(location.lat, location.lng);
-  //   const filteredParticipants = participants.filter(participant => {
-  //     const { latitude, longitude } = participant.location;
-  //     const participantLocation = new window.google.maps.LatLng(latitude, longitude);
-  //     const distance = window.google.maps.geometry.spherical.computeDistanceBetween(searchLocation, participantLocation);
-  //     return distance / 1000 < 10;
-  //   });
-  //   return filteredParticipants;
-  // }
+  calculateIncentive(participant) {
+    const incentiveModifier = 0.3;
+    let { baseIncentive } = this.props;
+    const { education } = participant.meta;
+    if ((education) && (education.postgraduate || education.undergraduate)) {
+      const incentive = baseIncentive + (baseIncentive * incentiveModifier);
+      return `$${incentive}`;
+    }
+    return `$${baseIncentive}.00`;
+  }
 
   render() {
     let { participants, loading } = this.props;
+    console.log(participants);
 
     const columns = [{
       Header: 'Email',
@@ -33,6 +34,10 @@ class Table extends Component {
       Header: 'Location',
       accessor: participant => `${participant.location.city}, ${participant.location.state}`,
       id: participant => participant.id
+    }, {
+      Header: 'Incentive',
+      accessor: participant => this.calculateIncentive(participant),
+      id: 'incentive'
     }]
    
     return (
