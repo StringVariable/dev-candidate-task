@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './table.scss';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import numeral from 'numeral';
 
 class Table extends Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class Table extends Component {
   calculateIncentive(participant) {
     const incentiveModifier = 0.3;
     let { baseIncentive } = this.props;
-    const { education } = participant.meta;
-    if ((education) && (education.postgraduate || education.undergraduate)) {
+    const { work } = participant.meta;
+    if ((work) && (work.status.fulltime_student || work.status.parttime)) {
       const incentive = baseIncentive + (baseIncentive * incentiveModifier);
-      return `$${incentive}`;
+      return numeral(incentive).format('$0.00');
     }
-    return `$${baseIncentive}.00`;
+    return numeral(baseIncentive).format('$0.00');
   }
 
   render() {
