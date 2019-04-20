@@ -25,7 +25,6 @@ class Table extends Component {
 
   render() {
     let { participants, loading } = this.props;
-    console.log(participants);
 
     const columns = [{
       Header: 'Email',
@@ -44,7 +43,14 @@ class Table extends Component {
       <div className="inputGroup fullWidthTable">
         <label>Participants</label>
         <br />
-        <ReactTable data={participants} columns={columns} loading={loading}/>
+        <ReactTable 
+          data={participants} 
+          columns={columns} 
+          loading={loading}
+          loadingText={'Finding participants...'}  
+          noDataText={'No participants found'}
+          rowsText={'participants'}
+        />
       </div>
     )
   }
